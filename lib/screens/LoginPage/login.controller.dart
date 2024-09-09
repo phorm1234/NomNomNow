@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nomnomnow/screens/index.dart' as screens;
 
-class LoginController {
+class LoginController extends GetxController {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   void login() {
 
-    final username = usernameController.text;
-    final password = passwordController.text;
+    final String username = usernameController.text;
+    final String password = passwordController.text;
 
-    print('Username: $username');
-    print('Password: $password');
-
-   
+    // do something
+    Get.to(()=> const screens.MainMenuPage(), arguments: {username: username});
   }
 
   void loginWithFacebook() {

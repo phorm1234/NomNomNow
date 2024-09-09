@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'login.controller.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,7 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final LoginController loginController = LoginController();
+  final LoginController _loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   TextField(
-                    controller: loginController.usernameController,
+                    controller: _loginController.usernameController,
                     decoration: const InputDecoration(
                       labelText: 'Username',
                       border: OutlineInputBorder(),
@@ -45,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 16.0),
                   TextField(
-                    controller: loginController.passwordController,
+                    controller: _loginController.passwordController,
                     decoration: const InputDecoration(
                       labelText: 'Password',
                       border: OutlineInputBorder(),
@@ -54,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 16.0),
                   ElevatedButton(
-                    onPressed: loginController.login,
+                    onPressed: _loginController.login,
                     child: const Text('Login'),
                   ),
                   const SizedBox(height: 16.0),
@@ -63,17 +64,17 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       IconButton(
                         icon: const FaIcon(FontAwesomeIcons.facebook, color: Colors.blue),
-                        onPressed: loginController.loginWithFacebook,
+                        onPressed: _loginController.loginWithFacebook,
                       ),
                       const SizedBox(width: 16.0),
                       IconButton(
                         icon: const FaIcon(FontAwesomeIcons.google, color: Colors.red),
-                        onPressed: loginController.loginWithGoogle,
+                        onPressed: _loginController.loginWithGoogle,
                       ),
                       const SizedBox(width: 16.0),
                       IconButton(
                         icon: const FaIcon(FontAwesomeIcons.twitter, color: Colors.blueAccent),
-                        onPressed: loginController.loginWithX,
+                        onPressed: _loginController.loginWithX,
                       ),
                     ],
                   ),
